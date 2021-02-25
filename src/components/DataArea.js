@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import DataTable from "./DataTable";
 import Nav from "./Nav";
 import API from "../utils/API";
-import "../styles/DataArea.css"
+import "../styles/DataArea.css";
 
 class DataArea extends Component {
+
   state = {
-    users: [{}],
-    order: "descend",
-    filteredUsers: [{}],
+  users: [{}],
+  order: "descend",
+  filteredUsers: [{}],
   };
 
   headings = [
@@ -19,7 +20,7 @@ class DataArea extends Component {
     { name: "DOB", width: "10%" },
   ];
 
-  handleSort = heading => {
+  handleSort = (heading) => {
     if (this.state.order === "descend") {
       this.setState({
         order: "ascend",
@@ -28,9 +29,9 @@ class DataArea extends Component {
       this.setState({
         order: "descend",
       });
-    };
+    }
 
-    compareFnc = (a, b) => {
+    const compareFnc = (a, b) => {
       if (this.state.order === "ascend") {
         if (a[heading] === undefined) {
           return 1;
@@ -67,16 +68,6 @@ class DataArea extends Component {
     this.setState({ filteredUsers: filteredList });
   };
 
-  //   useEffect(() => {
-  //     API.getUsers().then(results => {
-  //       setDeveloperState({
-  //         ...developerState,
-  //         users: results.data.results,
-  //         filteredUsers: results.data.results
-  //       });
-  //     });
-  //   }, []);
-
   componentDidMount() {
     API.getUsers().then((results) => {
       this.setState({
@@ -84,9 +75,10 @@ class DataArea extends Component {
         filteredUsers: results.data.results,
       });
     });
-  };
+  }
 
   render() {
+  
     return (
       <>
         <Nav handleSearchChange={this.handleSearchChange} />
@@ -99,8 +91,7 @@ class DataArea extends Component {
         </div>
       </>
     );
-  };
+  }
 }
-
 
 export default DataArea;

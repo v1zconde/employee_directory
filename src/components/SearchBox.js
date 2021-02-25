@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import DataArea from "./DataArea";
+import React from "react";
 
 
-const SearchBox = () => {
+
+const SearchBox = ({handleSearchChange}) => {
     return (
         <div className="searchbox">
             <form className="form-inline">
@@ -11,7 +11,7 @@ const SearchBox = () => {
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
-                    onChange={e => DataArea.handleSearchChange(e)}
+                    onChange={e => handleSearchChange(e)}
                 />
                 <button className="btn my-2 my-sm-0" type="submit">
                     Search
