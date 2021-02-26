@@ -1,7 +1,7 @@
 import React from "react";
 
 
-
+//Componen SearchBox in the NavBar
 const SearchBox = ({handleSearchChange}) => {
     return (
         <div className="searchbox">

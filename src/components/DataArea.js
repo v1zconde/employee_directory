@@ -3,15 +3,15 @@ import DataTable from "./DataTable";
 import Nav from "./Nav";
 import API from "../utils/API";
 import "../styles/DataArea.css";
-
+//Class DataArea to work with the Data and API
 class DataArea extends Component {
-
+//State
   state = {
   users: [{}],
   order: "descend",
   filteredUsers: [{}],
   };
-
+//Headings
   headings = [
     { name: "Image", width: "10%" },
     { name: "Name", width: "10%" },
@@ -19,7 +19,7 @@ class DataArea extends Component {
     { name: "Email", width: "20%" },
     { name: "DOB", width: "10%" },
   ];
-
+//Sort the data in the name
   handleSort = (heading) => {
     if (this.state.order === "descend") {
       this.setState({
@@ -57,7 +57,7 @@ class DataArea extends Component {
     const sortedUsers = this.state.filteredUsers.sort(compareFnc);
     this.setState({ filteredUsers: sortedUsers });
   };
-
+//filter the list with the OnChange
   handleSearchChange = (event) => {
     const filter = event.target.value;
     const filteredList = this.state.users.filter((item) => {
@@ -67,18 +67,18 @@ class DataArea extends Component {
 
     this.setState({ filteredUsers: filteredList });
   };
-
+//mount all the users to the page
   componentDidMount() {
     API.getUsers().then((results) => {
+      console.log(results.data.results)
       this.setState({
         users: results.data.results,
         filteredUsers: results.data.results,
       });
     });
   }
-
+//render the page
   render() {
-  
     return (
       <>
         <Nav handleSearchChange={this.handleSearchChange} />

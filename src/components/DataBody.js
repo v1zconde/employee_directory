@@ -1,7 +1,8 @@
 import React from "react";
 import "../styles/DataBody.css"
-
+//Data Body Component
 function DataBody({users}) {
+    //function to format the date from the API
     function formatDate(date){
         const dateArray = date.split("-");
         const year = dateArray[0];
@@ -12,6 +13,7 @@ function DataBody({users}) {
         return formattedDate
     }
     return (
+      //Body for the Table with the filtered users
         <tbody>
         {users[0] !== undefined && users[0].name !== undefined ? (
           users.map(({ login, name, picture, phone, email, dob }) => {
