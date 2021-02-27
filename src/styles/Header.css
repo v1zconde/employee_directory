@@ -1,0 +1,9 @@
+.header {
+    padding: 30px 0;
+    color: #ffffff;
+    background-color:rgb(113, 167, 247);
+    width: 100%;
+    text-align: center;
+    border-bottom: 10px solid rgb(49, 4, 252);
+    margin-bottom: 10px;
+}
